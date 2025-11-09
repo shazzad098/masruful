@@ -1,0 +1,96 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+    :root {
+        --background: 222 47% 11%; /* Dark Blue-Gray */
+        --foreground: 210 40% 98%; /* Light Gray */
+
+        --card: 222 47% 15%; /* Slightly Lighter Dark Blue */
+        --card-foreground: 210 40% 98%;
+
+        --popover: 222 47% 11%;
+        --popover-foreground: 210 40% 98%;
+
+        --primary: 210 40% 98%; /* Light Gray */
+        --primary-foreground: 222 47% 11%;
+
+        --secondary: 217 33% 25%; /* Muted Blue */
+        --secondary-foreground: 210 40% 98%;
+
+        --muted: 217 33% 25%;
+        --muted-foreground: 215 20% 65%;
+
+        /* Using a professional blue as the main accent */
+        --accent: 217 91% 60%; /* Bright Blue */
+        --accent-foreground: 210 40% 98%;
+
+        /* Replaced coral and cyan with blue and a lighter blue */
+        --coral: 217 91% 60%; /* Bright Blue */
+        --coral-foreground: 210 40% 98%;
+
+        --cyan: 199 89% 48%; /* Lighter Sky Blue */
+        --cyan-foreground: 210 100% 6%;
+
+        --destructive: 0 84% 60%;
+        --destructive-foreground: 210 40% 98%;
+
+        --border: 217 33% 20%; /* Darker Muted Blue */
+        --input: 217 33% 20%;
+        --ring: 217 91% 60%; /* Bright Blue for focus */
+
+        --radius: 0.75rem;
+
+        /* Updated Gradient */
+        --gradient-primary: linear-gradient(135deg, hsl(217 91% 60%), hsl(199 89% 48%));
+        --gradient-card: linear-gradient(180deg, hsl(222 47% 15%), hsl(222 47% 13%));
+        --shadow-glow: 0 0 40px hsl(217 91% 60% / 0.2);
+        --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+  }
+}
+
+@layer utilities {
+  .hover-glow {
+    transition: var(--transition-smooth);
+  }
+  
+  .hover-glow:hover {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-coral to-cyan bg-clip-text text-transparent;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
